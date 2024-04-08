@@ -1,0 +1,40 @@
+{% extends 'myapp/base.html' %} {% block content %}
+<div class="container  py-4">
+    <div class="bg-transparent">
+        <div class=" card-title bg-dark">
+            <h3 class="my-1 text-center text-light">Bus Reservation System</h3>
+        </div>
+    </div>
+    <div class="row justify-content-sm-center mt-4">
+        <div class="col-lg-5 col-md-7 col-sm-10 col-xs-12">
+            <div class="card rounded-0">
+                <div class="card-header bg-light">
+                    <div class="card-title h3 fw-bolde mb-0 text-center">LOGIN</div>
+                </div>
+                <div class="card-body">
+                    <div class="container-fluid">
+                        <form action="{% url 'signin' %}" method="post" id="signin-form">
+                            {% csrf_token %}
+                            <div class="mb-2">
+                                <label for="username" class="control-label">Username:</label>
+                                <input name='name' class="form-control rounded" type="text" id="username" required>
+                            </div>
+                            <div class="mb-2">
+                                <label for="example-email-input" class="control-label">Password:</label>
+                                <input name='password' class="form-control rounded" type="password" required>
+                            </div>
+
+                        </form>
+                        <p>{{error}}</p>
+                    </div>
+                </div>
+                <div class="card-footer text-center ">
+                    <button class="btn btn-outline-dark btn-sm rounded btn-primary btn-block w-150 text-light" form="signin-form">Login</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}
